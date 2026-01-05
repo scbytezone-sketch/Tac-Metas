@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  background-color: #f6f8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root.dark {
+  color: #e2e8f0;
+  background-color: #0b0f14;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  @apply bg-slate-50 text-slate-900 dark:bg-[#0B0F14] dark:text-slate-200;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.btn-primary {
+  @apply w-full rounded-xl bg-brand-primary text-white font-semibold py-3 shadow-sm active:scale-[0.99] transition disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply w-full rounded-xl bg-white border border-brand-primary text-brand-primary font-semibold py-3 shadow-sm active:scale-[0.99] transition dark:bg-slate-900 dark:border-slate-700 dark:text-slate-100;
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-card p-4 dark:bg-slate-900 dark:border dark:border-slate-800 dark:text-slate-200;
+}
+
+input,
+select,
+textarea {
+  @apply w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-primary/40 focus:border-brand-primary dark:bg-slate-950 dark:border-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500;
+}
+
+label {
+  @apply text-xs font-semibold text-slate-600 mb-1 block;
+}
+
+.bottom-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 12px);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+
+/* Chart Focus Fix - Removes outline/focus ring from charts only */
+.chart-container {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chart-container .recharts-wrapper {
+  outline: none !important;
+}
+
+.chart-container .recharts-surface:focus,
+.chart-container .recharts-surface:active {
+  outline: none !important;
+}
+
+.chart-container *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus from SVG elements inside the chart container */
+.chart-container svg:focus,
+.chart-container path:focus,
+.chart-container rect:focus,
+.chart-container g:focus,
+.chart-container .recharts-sector:focus,
+.chart-container .recharts-layer:focus,
+.chart-container .recharts-bar-rectangle:focus,
+.chart-container .recharts-pie-sector:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Specific Fix for Weekly Points Chart */
+.chart-no-focus,
+.chart-no-focus * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.chart-no-focus :focus,
+.chart-no-focus :focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
